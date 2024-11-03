@@ -10,7 +10,7 @@ main {
   .gify-display {
     display: flex;
     flex-direction: column;
-    border: 2px solid lightseagreen;
+    border: 2px solid teal;
     border-radius: 5px;
     margin-top: 1em;
     padding: 1em;
@@ -35,11 +35,11 @@ main {
   }
   
   button {
-    background-color: lightseagreen;
+    background-color: teal;
     color: white;
     border: none;
     border-radius: 10px;
-    padding: 1em 2em;
+    padding: 1em 1em;
   }
   
   button:active {
@@ -48,4 +48,12 @@ main {
   
   button:hover {
     cursor: pointer;
+  }
+
+  .error-response {
+    background-color: red;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 1em;
   }

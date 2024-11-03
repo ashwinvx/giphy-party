@@ -36,13 +36,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //Call Giphy asynchronously using axios and append gifs
     async function giphyRequest(word) {
-        const response = await axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${giphyApiKey}&q=${word}&limit=10`);
-        console.log('response-->', response.data.data);
-        return response.data.data.map(item => { return { gifURL: item.images.fixed_width.url } });
+        try {
+            const response = await axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${giphyApiKey}&q=${word}&limit=10`);
+            console.log('response-->', response.data.data);
+            return response.data.data.map(item => { return { gifURL: item.images.fixed_width.url } });
+        } catch (error) {
+            console.log('error-->', error.message);
+            const h3 = document.createElement("h3");
+            const newDiv = document.createElement("div");
+            h3.innerHTML = "Error";
+            h3.classList.add("error-response");
+            newDiv.innerHTML = error.message;
+            newDiv.classList.add("error-response");
+            gifContainer.appendChild(h3);
+            gifContainer.appendChild(newDiv);
+        }
     }
 
     removeButton.addEventListener("click", function (event) {
         console.log('remove images clicked');
         gifContainer.innerHTML = "";
+        gifContainer.innerText = "****Gifs here****"
     })
 })
