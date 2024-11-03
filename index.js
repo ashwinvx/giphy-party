@@ -1,6 +1,3 @@
-// look back at the <readme.md> file for some hints //
-// working API key //
-
 document.addEventListener("DOMContentLoaded", function () {
     const giphyApiKey = "MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym";
 
